@@ -7,7 +7,7 @@ class FootRollerCommand : public frc::Command {
 private:
 	double speed;
 public:
-	FootRollerCommand();
+	FootRollerCommand(double s);
 	void Initialize() override;
 	void Execute() override;
 	bool IsFinished() override;
