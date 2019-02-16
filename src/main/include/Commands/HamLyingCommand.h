@@ -3,11 +3,11 @@
 #include <frc/commands/Command.h>
 #include "Robot.h"
 
-class HamRaisingCommand : public frc::Command {
+class HamLyingCommand : public frc::Command {
 private:
 	double generateOutputPercent();
 public:
-	HamRaisingCommand();
+	HamLyingCommand();
 	void Initialize() override;
 	void Execute() override;
 	bool IsFinished() override;

@@ -15,5 +15,6 @@ public:
 	void roll(double speed);
 	void ham(double speed);
 	void stopMotors();
+	double hamDistance();
 };
 

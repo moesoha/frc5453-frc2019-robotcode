@@ -19,6 +19,10 @@ void FootSubsystem::ham(double speed){
 	motorHam->Set(speed);
 }
 
+double FootSubsystem::hamDistance(){
+	return RobotMap::encoderHam->GetDistance();
+}
+
 void FootSubsystem::stopMotors(){
 	motorFootRoller->StopMotor();
 	motorHam->StopMotor();

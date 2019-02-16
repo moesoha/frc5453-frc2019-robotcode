@@ -1,7 +1,6 @@
 #include "Commands/HamRaisingCommand.h"
 
-HamRaisingCommand::HamRaisingCommand(double s) {
-    speed=s;
+HamRaisingCommand::HamRaisingCommand() {
 	Requires(Robot::footSubsystem.get());
 }
 
@@ -10,7 +9,7 @@ void HamRaisingCommand::Initialize() {
 }
 
 void HamRaisingCommand::Execute() {
-	Robot::footSubsystem->ham(speed);
+	Robot::footSubsystem->ham(generateOutputPercent());
 }
 
 bool HamRaisingCommand::IsFinished() {
@@ -23,4 +22,19 @@ void HamRaisingCommand::End() {
 
 void HamRaisingCommand::Interrupted() {
 	End();
+}
+
+double HamRaisingCommand::generateOutputPercent(){
+	double dist=Robot::footSubsystem->hamDistance();
+	if(dist<10){
+		return 0.05;
+	}else if(dist<50){
+		return 0.2;
+	}else if(dist<200){
+		return 0.5;
+	}else if(dist<500){
+		return 0.6;
+	}else{
+		return 0.5;
+	}
 }
