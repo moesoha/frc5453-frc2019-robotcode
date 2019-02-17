@@ -6,12 +6,13 @@
 
 OI::OI() {
 	joystickDriver.reset(new frc::Joystick(0));
+	joystickOperator.reset(new frc::Joystick(1));
 
-	(new frc::JoystickButton(joystickDriver.get(), 4))->WhileHeld(new HamRaisingCommand());
-	(new frc::JoystickButton(joystickDriver.get(), 2))->WhileHeld(new HamLyingCommand());
-	(new frc::JoystickButton(joystickDriver.get(), 1))->WhileHeld(new FootRollerCommand(1)); //push
-	(new frc::JoystickButton(joystickDriver.get(), 3))->WhileHeld(new FootRollerCommand(-0.4));
-	(new frc::JoystickButton(joystickDriver.get(), 5))->WhileHeld(new FootRollerCommand(-0.05));
+	(new frc::JoystickButton(joystickOperator.get(), 4))->WhileHeld(new HamRaisingCommand());
+	(new frc::JoystickButton(joystickOperator.get(), 2))->WhileHeld(new HamLyingCommand());
+	(new frc::JoystickButton(joystickOperator.get(), 1))->WhileHeld(new FootRollerCommand(1)); //push
+	(new frc::JoystickButton(joystickOperator.get(), 3))->WhileHeld(new FootRollerCommand(-0.4));
+	(new frc::JoystickButton(joystickOperator.get(), 5))->WhileHeld(new FootRollerCommand(-0.05));
 }
 
 std::shared_ptr<frc::Joystick> OI::getJoystickDriver(){
@@ -20,4 +21,8 @@ std::shared_ptr<frc::Joystick> OI::getJoystickDriver(){
 
 double OI::getDriverRawAxis(int axis){
 	return joystickDriver->GetRawAxis(axis);
+}
+
+bool OI::getDriverRawButton(int id){
+	return joystickDriver->GetRawButton(id);
 }

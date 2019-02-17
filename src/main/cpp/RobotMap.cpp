@@ -17,6 +17,10 @@ std::shared_ptr<ctre::phoenix::motorcontrol::can::WPI_VictorSPX> RobotMap::motor
 std::shared_ptr<frc::SpeedControllerGroup> RobotMap::motorHam;
 std::shared_ptr<frc::Encoder> RobotMap::encoderHam;
 
+std::shared_ptr<ctre::phoenix::motorcontrol::can::WPI_VictorSPX> RobotMap::motorElevator1;
+std::shared_ptr<ctre::phoenix::motorcontrol::can::WPI_VictorSPX> RobotMap::motorElevator2;
+std::shared_ptr<frc::SpeedControllerGroup> RobotMap::motorElevator;
+
 std::shared_ptr<frc::Compressor> RobotMap::compressor;
 
 std::shared_ptr<frc::PowerDistributionPanel> RobotMap::pdp;
@@ -33,17 +37,23 @@ void RobotMap::init(){
 	motorDriveGroupLeft->SetInverted(true);
 	motorDriveGroupRight->SetInverted(true);
 	robotDrive.reset(new frc::DifferentialDrive(*motorDriveGroupLeft,*motorDriveGroupRight));
+	robotDrive->SetSafetyEnabled(false);
 
 	motorFootRoller.reset(new ctre::phoenix::motorcontrol::can::WPI_VictorSPX(RobotMap::CAN_MAID_ROLLER));
 
-	encoderHam.reset(new frc::Encoder(RobotMap::DIO_ENCODER_HAM_A, RobotMap::DIO_ENCODER_HAM_B));
 	motorHam1.reset(new ctre::phoenix::motorcontrol::can::WPI_VictorSPX(RobotMap::CAN_HAM_1));
 	motorHam2.reset(new ctre::phoenix::motorcontrol::can::WPI_VictorSPX(RobotMap::CAN_HAM_2));
 	// motorHam2->SetInverted(true);
 	motorHam.reset(new frc::SpeedControllerGroup(*motorHam1,*motorHam2));
+	motorHam->SetInverted(true);
+	encoderHam.reset(new frc::Encoder(RobotMap::DIO_ENCODER_HAM_A, RobotMap::DIO_ENCODER_HAM_B));
+
+	motorElevator1.reset(new ctre::phoenix::motorcontrol::can::WPI_VictorSPX(RobotMap::CAN_FRONT_WINCH_1));
+	motorElevator2.reset(new ctre::phoenix::motorcontrol::can::WPI_VictorSPX(RobotMap::CAN_FRONT_WINCH_2));
+	motorElevator.reset(new frc::SpeedControllerGroup(*motorElevator1,*motorElevator2));
 
 	compressor.reset(new frc::Compressor(RobotMap::CAN_PCM));
-	compressor->SetClosedLoopControl(false);
+	compressor->SetClosedLoopControl(true);
 	// compressor->Enabled();
 
 	// pdp.reset(new frc::PowerDistributionPanel());

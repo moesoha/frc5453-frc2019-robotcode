@@ -6,6 +6,7 @@
 
 #include "Subsystems/DriveSubsystem.h"
 #include "Subsystems/FootSubsystem.h"
+#include "Subsystems/ElevatorSubsystem.h"
 
 #include "OI.h"
 #include "RobotMap.h"
@@ -16,6 +17,7 @@ class Robot : public frc::TimedRobot {
 public:
 	static std::shared_ptr<DriveSubsystem> driveSubsystem;
 	static std::shared_ptr<FootSubsystem> footSubsystem;
+	static std::shared_ptr<ElevatorSubsystem> elevatorSubsystem;
 	static std::shared_ptr<OI> oi;
 
 	void RobotInit() override;

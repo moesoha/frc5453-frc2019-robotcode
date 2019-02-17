@@ -29,12 +29,13 @@ double HamLyingCommand::generateOutputPercent(){
 	if(dist<10){
 		return 0.3;
 	}else if(dist<50){
-		return 0.2;
-	}else if(dist<200){
-		return 0.1;
-	}else if(dist<500){
-		return 0.1;
-	}else{
-		return 0.0;
+		return 0.3;
+	}else if(dist<130){
+		return 0.18;
+    }else if(dist<320){
+        return 0.1;
+    }else if(dist<480){
+		return 0.08;
 	}
+    return -0.06;
 }

@@ -3,9 +3,9 @@
 #include <frc/commands/Command.h>
 #include "Robot.h"
 
-class FootRollerAxisCommand : public frc::Command {
+class ElevatorAxisCommand : public frc::Command {
 public:
-	FootRollerAxisCommand();
+	ElevatorAxisCommand();
 	void Initialize() override;
 	void Execute() override;
 	bool IsFinished() override;

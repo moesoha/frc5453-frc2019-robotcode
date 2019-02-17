@@ -5,6 +5,7 @@
 
 std::shared_ptr<DriveSubsystem> Robot::driveSubsystem;
 std::shared_ptr<FootSubsystem> Robot::footSubsystem;
+std::shared_ptr<ElevatorSubsystem> Robot::elevatorSubsystem;
 std::shared_ptr<OI> Robot::oi;
 
 void Robot::RobotInit() {
@@ -12,6 +13,7 @@ void Robot::RobotInit() {
 
 	driveSubsystem.reset(new DriveSubsystem());
 	footSubsystem.reset(new FootSubsystem());
+	elevatorSubsystem.reset(new ElevatorSubsystem());
 
 	oi.reset(new OI());
 
