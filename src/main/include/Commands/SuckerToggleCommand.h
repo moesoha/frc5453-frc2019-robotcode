@@ -4,8 +4,10 @@
 #include "Robot.h"
 
 class SuckerToggleCommand : public frc::Command {
+private:
+	bool isKiller=false;
 public:
-	SuckerToggleCommand();
+	SuckerToggleCommand(bool isK);
 	void Initialize() override;
 	void Execute() override;
 	bool IsFinished() override;

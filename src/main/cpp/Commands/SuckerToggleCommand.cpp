@@ -1,13 +1,18 @@
 #include "Commands/SuckerToggleCommand.h"
 
-SuckerToggleCommand::SuckerToggleCommand() {
+SuckerToggleCommand::SuckerToggleCommand(bool isK) {
 	Requires(Robot::suckerSubsystem.get());
+	isKiller=isK;
 }
 
 void SuckerToggleCommand::Initialize() {}
 
 void SuckerToggleCommand::Execute() {
-	Robot::suckerSubsystem->toggle();
+	if(!isKiller){
+		Robot::suckerSubsystem->toggle();
+	}else{
+		Robot::suckerSubsystem->toggleKiller();
+	}
 }
 
 bool SuckerToggleCommand::IsFinished() {

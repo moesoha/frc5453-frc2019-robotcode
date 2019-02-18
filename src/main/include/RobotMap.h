@@ -20,6 +20,7 @@ public:
 	constexpr static int DIO_ENCODER_FOOTFRAME_A=2;
 	constexpr static int DIO_ENCODER_FOOTFRAME_B=3;
 	constexpr static int PCM_SOLENOID_PLATESUCKER=0;
+	constexpr static int PCM_SOLENOID_PLATESUCKERKILLER=1;
 
 	static std::shared_ptr<rev::CANSparkMax> motorDriveLeft1;
 	static std::shared_ptr<rev::CANSparkMax> motorDriveLeft2;
@@ -46,6 +47,7 @@ public:
 
 	static std::shared_ptr<frc::Compressor> compressor;
 	static std::shared_ptr<frc::Solenoid> solenPlateSucker;
+	static std::shared_ptr<frc::Solenoid> solenPlateSuckerKiller;
 
 	static std::shared_ptr<frc::PowerDistributionPanel> pdp;
 };

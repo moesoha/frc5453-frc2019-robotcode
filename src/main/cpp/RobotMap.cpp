@@ -25,6 +25,7 @@ std::shared_ptr<frc::SpeedControllerGroup> RobotMap::motorElevator;
 
 std::shared_ptr<frc::Compressor> RobotMap::compressor;
 std::shared_ptr<frc::Solenoid> RobotMap::solenPlateSucker;
+std::shared_ptr<frc::Solenoid> RobotMap::solenPlateSuckerKiller;
 
 std::shared_ptr<frc::PowerDistributionPanel> RobotMap::pdp;
 
@@ -63,8 +64,9 @@ void RobotMap::init(){
 	motorElevator.reset(new frc::SpeedControllerGroup(*motorElevator1,*motorElevator2));
 
 	compressor.reset(new frc::Compressor(RobotMap::CAN_PCM));
-	compressor->SetClosedLoopControl(false);
+	compressor->SetClosedLoopControl(true);
 	// compressor->Enabled();
+	solenPlateSuckerKiller.reset(new frc::Solenoid(CAN_PCM,PCM_SOLENOID_PLATESUCKERKILLER));
 	solenPlateSucker.reset(new frc::Solenoid(CAN_PCM,PCM_SOLENOID_PLATESUCKER));
 
 	pdp.reset(new frc::PowerDistributionPanel());
