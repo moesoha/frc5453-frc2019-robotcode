@@ -2,23 +2,25 @@
 #include "RobotMap.h"
 #include <cmath>
 
-HamPIDSubsystem::HamPIDSubsystem() : frc::PIDSubsystem("HamPIDSubsystem", 0.0016, 0.00004, 0) {
+HamPIDSubsystem::HamPIDSubsystem() : frc::PIDSubsystem("HamPIDSubsystem", 0.005, 0.2, 0) {
 	motorHam=RobotMap::motorHam;
     SetPercentTolerance(0.2);
-    SetPIDSourceType(frc::PIDSourceType::kDisplacement);
+    SetInputRange(-90,90);
+    SetPIDSourceType(frc::PIDSourceType::kRate);
     GetPIDController()->SetContinuous(false);
+    GetPIDController()->SetF(fBase);
 }
 
 void HamPIDSubsystem::InitDefaultCommand(){}
 
 double HamPIDSubsystem::ReturnPIDInput(){
-    return RobotMap::encoderHam->GetDistance();
+    // return (RobotMap::motorHam1->GetMotorOutputVoltage()+RobotMap::motorHam2->GetMotorOutputVoltage())/2.0;
+    GetPIDController()->SetF(fBase*cos(90-RobotMap::encoderHam->GetRate()));
+    return RobotMap::encoderHam->GetRate();
 }
 
 void HamPIDSubsystem::UsePIDOutput(double output){
     frc::SmartDashboard::PutNumber("HamPIDOutput",output);
-    if(fabs(output)>0.8){
-        return;
-    }
-    motorHam->Set(-output);
+    // printf("PID: %lf\n",output);
+    // motorHam->Set(-output);
 }

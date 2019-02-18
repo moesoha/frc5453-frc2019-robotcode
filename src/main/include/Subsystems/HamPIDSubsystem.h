@@ -6,6 +6,7 @@
 
 class HamPIDSubsystem : public frc::PIDSubsystem {
 private:
+    const double fBase=59.5/(0.71*2*100);
     std::shared_ptr<frc::SpeedControllerGroup> motorHam;
 public:
 	HamPIDSubsystem();
