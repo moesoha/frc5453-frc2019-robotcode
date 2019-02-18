@@ -2,7 +2,7 @@
 
 HamSetpointCommand::HamSetpointCommand(double p) {
     point=p;
-	Requires(Robot::hamPidSubsystem.get());
+	Requires(Robot::hamSubsystem.get());
 }
 
 void HamSetpointCommand::Initialize() {
@@ -10,7 +10,7 @@ void HamSetpointCommand::Initialize() {
 }
 
 void HamSetpointCommand::Execute() {
-	// Robot::hamPidSubsystem->SetSetpoint(point);
+	// Robot::hamSubsystem->SetSetpoint(point);
 }
 
 bool HamSetpointCommand::IsFinished() {

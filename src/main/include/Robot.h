@@ -6,7 +6,6 @@
 
 #include "Subsystems/DriveSubsystem.h"
 #include "Subsystems/HamSubsystem.h"
-#include "Subsystems/HamPIDSubsystem.h"
 #include "Subsystems/FootSubsystem.h"
 #include "Subsystems/ElevatorSubsystem.h"
 
@@ -19,7 +18,6 @@ class Robot : public frc::TimedRobot {
 public:
 	static std::shared_ptr<DriveSubsystem> driveSubsystem;
 	static std::shared_ptr<HamSubsystem> hamSubsystem;
-	static std::shared_ptr<HamPIDSubsystem> hamPidSubsystem;
 	static std::shared_ptr<FootSubsystem> footSubsystem;
 	static std::shared_ptr<ElevatorSubsystem> elevatorSubsystem;
 	static std::shared_ptr<OI> oi;
