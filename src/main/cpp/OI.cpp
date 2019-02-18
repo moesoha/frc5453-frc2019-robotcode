@@ -17,8 +17,10 @@ OI::OI() {
 	(new frc::JoystickButton(joystickOperator.get(), 3))->WhileHeld(new FootRollerCommand(-0.4));
 	// (new frc::JoystickButton(joystickOperator.get(), 5))->WhileHeld(new FootRollerCommand(-0.05));
 
-	(new frc::JoystickButton(joystickOperator.get(), 8))->WhileHeld(new SuckerToggleCommand(false));
-	(new frc::JoystickButton(joystickOperator.get(), 7))->WhileHeld(new SuckerToggleCommand(true));
+	(new frc::JoystickButton(joystickOperator.get(), 8))->WhenPressed(new SuckerToggleCommand(false));
+	(new frc::JoystickButton(joystickOperator.get(), 8))->WhenReleased(new SuckerToggleCommand(false));
+	(new frc::JoystickButton(joystickOperator.get(), 7))->WhenPressed(new SuckerToggleCommand(true));
+	(new frc::JoystickButton(joystickOperator.get(), 7))->WhenReleased(new SuckerToggleCommand(true));
 
 	(new frc::JoystickButton(joystickOperator2.get(), 1))->WhileHeld(new ElevatorSetCommand(0.8));
 	(new frc::JoystickButton(joystickOperator2.get(), 2))->WhileHeld(new ElevatorSetCommand(0.5));
