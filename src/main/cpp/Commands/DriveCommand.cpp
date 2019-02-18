@@ -15,7 +15,7 @@ void DriveCommand::Execute() {
 	double y=Robot::oi->getDriverRawAxis(3);
 	x=fabs(x)<0.01?0:x*r;
 	y=fabs(y)<0.01?0:y*r;
-	Robot::driveSubsystem->tankDrive(x,y,false);
+	// Robot::driveSubsystem->tankDrive(x,y,false);
 }
 
 double DriveCommand::getRate(){

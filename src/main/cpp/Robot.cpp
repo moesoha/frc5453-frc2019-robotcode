@@ -8,6 +8,7 @@ std::shared_ptr<FootSubsystem> Robot::footSubsystem;
 std::shared_ptr<HamSubsystem> Robot::hamSubsystem;
 std::shared_ptr<ElevatorSubsystem> Robot::elevatorSubsystem;
 std::shared_ptr<SuckerSubsystem> Robot::suckerSubsystem;
+std::shared_ptr<TongueSubsystem> Robot::tongueSubsystem;
 std::shared_ptr<OI> Robot::oi;
 
 void Robot::RobotInit() {
@@ -17,6 +18,7 @@ void Robot::RobotInit() {
 	footSubsystem.reset(new FootSubsystem());
 	hamSubsystem.reset(new HamSubsystem());
 	elevatorSubsystem.reset(new ElevatorSubsystem());
+	tongueSubsystem.reset(new TongueSubsystem());
 	suckerSubsystem.reset(new SuckerSubsystem());
 
 	oi.reset(new OI());

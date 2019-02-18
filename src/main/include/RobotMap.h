@@ -11,6 +11,7 @@ public:
 	constexpr static int CAN_HAM_1=11;
 	constexpr static int CAN_HAM_2=12;
 	constexpr static int CAN_MAID_ROLLER=13;
+	constexpr static int CAN_HALF_FRAME=14;
 	constexpr static int CAN_FRONT_WINCH_1=16;
 	constexpr static int CAN_FRONT_WINCH_2=17;
 	constexpr static int CAN_PCM=60;
@@ -39,6 +40,7 @@ public:
 	static std::shared_ptr<frc::SpeedControllerGroup> motorHam;
 	static std::shared_ptr<frc::Encoder> encoderHam;
 
+	static std::shared_ptr<ctre::phoenix::motorcontrol::can::WPI_VictorSPX> motorHalfFrame;
 	static std::shared_ptr<frc::Encoder> encoderFootFrame;
 
 	static std::shared_ptr<ctre::phoenix::motorcontrol::can::WPI_VictorSPX> motorElevator1;

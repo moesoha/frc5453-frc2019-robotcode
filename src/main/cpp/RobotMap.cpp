@@ -17,6 +17,7 @@ std::shared_ptr<ctre::phoenix::motorcontrol::can::WPI_VictorSPX> RobotMap::motor
 std::shared_ptr<frc::SpeedControllerGroup> RobotMap::motorHam;
 std::shared_ptr<frc::Encoder> RobotMap::encoderHam;
 
+std::shared_ptr<ctre::phoenix::motorcontrol::can::WPI_VictorSPX> RobotMap::motorHalfFrame;
 std::shared_ptr<frc::Encoder> RobotMap::encoderFootFrame;
 
 std::shared_ptr<ctre::phoenix::motorcontrol::can::WPI_VictorSPX> RobotMap::motorElevator1;
@@ -54,6 +55,7 @@ void RobotMap::init(){
 	// encoderHam->SetDistancePerPulse(2*3.1415926535897932384/2048.0); // rad
 	encoderHam->SetDistancePerPulse(360.0/2048.0); // deg
 	
+	motorHalfFrame.reset(new ctre::phoenix::motorcontrol::can::WPI_VictorSPX(RobotMap::CAN_HALF_FRAME));
 	encoderFootFrame.reset(new frc::Encoder(RobotMap::DIO_ENCODER_FOOTFRAME_A, RobotMap::DIO_ENCODER_FOOTFRAME_B));
 	// encoderFootFrame->SetDistancePerPulse(2*3.1415926535897932384/2048.0*0.72); // rad
 	encoderFootFrame->SetDistancePerPulse(360.0/2048.0*0.72); // deg
