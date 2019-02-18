@@ -10,7 +10,7 @@ void HamSetpointCommand::Initialize() {
 }
 
 void HamSetpointCommand::Execute() {
-	Robot::hamPidSubsystem->SetSetpoint(point);
+	// Robot::hamPidSubsystem->SetSetpoint(point);
 }
 
 bool HamSetpointCommand::IsFinished() {

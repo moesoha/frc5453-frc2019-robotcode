@@ -31,7 +31,7 @@ void Robot::RobotInit() {
 void Robot::RobotPeriodic() {}
 
 void Robot::DisabledInit() {
-	hamPidSubsystem->Disable();
+	// hamPidSubsystem->Disable();
 }
 
 void Robot::DisabledPeriodic() {
@@ -51,7 +51,7 @@ void Robot::AutonomousPeriodic() {
 }
 
 void Robot::TeleopInit() {
-	hamPidSubsystem->Enable();
+	// hamPidSubsystem->Enable();
 	// This makes sure that the autonomous stops running when
 	// teleop starts running. If you want the autonomous to
 	// continue until interrupted by another command, remove

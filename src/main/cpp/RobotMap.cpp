@@ -47,6 +47,8 @@ void RobotMap::init(){
 	motorHam.reset(new frc::SpeedControllerGroup(*motorHam1,*motorHam2));
 	motorHam->SetInverted(true);
 	encoderHam.reset(new frc::Encoder(RobotMap::DIO_ENCODER_HAM_A, RobotMap::DIO_ENCODER_HAM_B));
+	// encoderHam->SetDistancePerPulse(2*3.1415926535897932384/2048.0); // rad
+	encoderHam->SetDistancePerPulse(360.0/2048.0); // deg
 
 	motorElevator1.reset(new ctre::phoenix::motorcontrol::can::WPI_VictorSPX(RobotMap::CAN_FRONT_WINCH_1));
 	motorElevator2.reset(new ctre::phoenix::motorcontrol::can::WPI_VictorSPX(RobotMap::CAN_FRONT_WINCH_2));
