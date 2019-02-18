@@ -1,13 +1,13 @@
 #include "Subsystems/HamSubsystem.h"
 #include "RobotMap.h"
-#include "Commands/LegAxisCommand.h"
+#include "Commands/HamAxisCommand.h"
 
 HamSubsystem::HamSubsystem() : frc::Subsystem("HamSubsystem") {
 	motorHam=RobotMap::motorHam;
 }
 
 void HamSubsystem::InitDefaultCommand() {
-	// SetDefaultCommand(new LegAxisCommand());
+	// SetDefaultCommand(new HamAxisCommand());
 }
 
 void HamSubsystem::set(double speed){
