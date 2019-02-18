@@ -2,6 +2,7 @@
 
 #include "Commands/HamRaisingCommand.h"
 #include "Commands/HamLyingCommand.h"
+#include "Commands/HamSetpointCommand.h"
 #include "Commands/FootRollerCommand.h"
 #include "Commands/ElevatorSetCommand.h"
 
@@ -15,6 +16,10 @@ OI::OI() {
 	(new frc::JoystickButton(joystickOperator.get(), 1))->WhileHeld(new FootRollerCommand(1)); //push
 	(new frc::JoystickButton(joystickOperator.get(), 3))->WhileHeld(new FootRollerCommand(-0.4));
 	(new frc::JoystickButton(joystickOperator.get(), 5))->WhileHeld(new FootRollerCommand(-0.05));
+	
+	(new frc::JoystickButton(joystickOperator.get(), 6))->WhileHeld(new HamSetpointCommand(50));
+	(new frc::JoystickButton(joystickOperator.get(), 7))->WhileHeld(new HamSetpointCommand(233));
+	(new frc::JoystickButton(joystickOperator.get(), 8))->WhileHeld(new HamSetpointCommand(500));
 
 	(new frc::JoystickButton(joystickOperator2.get(), 1))->WhileHeld(new ElevatorSetCommand(0.8));
 	(new frc::JoystickButton(joystickOperator2.get(), 2))->WhileHeld(new ElevatorSetCommand(0.5));

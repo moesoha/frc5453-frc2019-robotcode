@@ -2,7 +2,7 @@
 #include "RobotMap.h"
 #include <cmath>
 
-HamPIDSubsystem::HamPIDSubsystem() : frc::PIDSubsystem("HamPIDSubsystem", 0.0016, 0.00004, 0.00045) {
+HamPIDSubsystem::HamPIDSubsystem() : frc::PIDSubsystem("HamPIDSubsystem", 0.0016, 0.00004, 0) {
 	motorHam=RobotMap::motorHam;
     SetPercentTolerance(0.2);
     SetPIDSourceType(frc::PIDSourceType::kDisplacement);
@@ -17,8 +17,8 @@ double HamPIDSubsystem::ReturnPIDInput(){
 
 void HamPIDSubsystem::UsePIDOutput(double output){
     frc::SmartDashboard::PutNumber("HamPIDOutput",output);
-    // if(fabs(output)>0.6){
-    //     return;
-    // }
+    if(fabs(output)>0.8){
+        return;
+    }
     motorHam->Set(-output);
 }
