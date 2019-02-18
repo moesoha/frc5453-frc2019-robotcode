@@ -7,6 +7,7 @@ std::shared_ptr<DriveSubsystem> Robot::driveSubsystem;
 std::shared_ptr<FootSubsystem> Robot::footSubsystem;
 std::shared_ptr<HamSubsystem> Robot::hamSubsystem;
 std::shared_ptr<ElevatorSubsystem> Robot::elevatorSubsystem;
+std::shared_ptr<SuckerSubsystem> Robot::suckerSubsystem;
 std::shared_ptr<OI> Robot::oi;
 
 void Robot::RobotInit() {
@@ -16,6 +17,7 @@ void Robot::RobotInit() {
 	footSubsystem.reset(new FootSubsystem());
 	hamSubsystem.reset(new HamSubsystem());
 	elevatorSubsystem.reset(new ElevatorSubsystem());
+	suckerSubsystem.reset(new SuckerSubsystem());
 
 	oi.reset(new OI());
 
@@ -23,7 +25,8 @@ void Robot::RobotInit() {
 	m_chooser.AddOption("Go straight", new TimedArcadeDriveCommand(0.4, 0, 3.2));
 	frc::SmartDashboard::PutData("Auto Modes", &m_chooser);
 
-	frc::CameraServer::GetInstance()->StartAutomaticCapture();
+	frc::CameraServer::GetInstance()->StartAutomaticCapture("Front",0);
+	frc::CameraServer::GetInstance()->StartAutomaticCapture("Rear",1);
 }
 
 void Robot::RobotPeriodic() {}

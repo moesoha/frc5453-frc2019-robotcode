@@ -13,6 +13,7 @@ public:
 	void InitDefaultCommand() override;
 	void set(double speed);
 	void stopMotors();
+	void softStop();
 	double hamDistance();
 };
 

@@ -17,7 +17,7 @@ bool HamRaisingCommand::IsFinished() {
 }
 
 void HamRaisingCommand::End() {
-    Robot::hamSubsystem->stopMotors();
+    Robot::hamSubsystem->softStop();
 }
 
 void HamRaisingCommand::Interrupted() {
@@ -26,16 +26,16 @@ void HamRaisingCommand::Interrupted() {
 
 double HamRaisingCommand::generateOutputPercent(){
 	double dist=Robot::hamSubsystem->hamDistance();
-	if(dist<5){
+	if(dist<3){
 		return 0;
-	}else if(dist<25){
+	}else if(dist<5){
 		return 0.05;
-	}else if(dist<100){
+	}else if(dist<18){
 		return 0.10;
-	}else if(dist<200){
-		return 0.20;
-	}else if(dist<500){
-		return 0.38;
+	}else if(dist<35){
+		return 0.21;
+	}else if(dist<82){
+		return 0.36;
 	}
 	return 0.3;
 }

@@ -8,6 +8,7 @@
 #include "Subsystems/HamSubsystem.h"
 #include "Subsystems/FootSubsystem.h"
 #include "Subsystems/ElevatorSubsystem.h"
+#include "Subsystems/SuckerSubsystem.h"
 
 #include "OI.h"
 #include "RobotMap.h"
@@ -20,6 +21,7 @@ public:
 	static std::shared_ptr<HamSubsystem> hamSubsystem;
 	static std::shared_ptr<FootSubsystem> footSubsystem;
 	static std::shared_ptr<ElevatorSubsystem> elevatorSubsystem;
+	static std::shared_ptr<SuckerSubsystem> suckerSubsystem;
 	static std::shared_ptr<OI> oi;
 
 	void RobotInit() override;

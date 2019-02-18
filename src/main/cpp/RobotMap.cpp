@@ -22,6 +22,7 @@ std::shared_ptr<ctre::phoenix::motorcontrol::can::WPI_VictorSPX> RobotMap::motor
 std::shared_ptr<frc::SpeedControllerGroup> RobotMap::motorElevator;
 
 std::shared_ptr<frc::Compressor> RobotMap::compressor;
+std::shared_ptr<frc::Solenoid> RobotMap::solenPlateSucker;
 
 std::shared_ptr<frc::PowerDistributionPanel> RobotMap::pdp;
 
@@ -57,6 +58,7 @@ void RobotMap::init(){
 	compressor.reset(new frc::Compressor(RobotMap::CAN_PCM));
 	compressor->SetClosedLoopControl(false);
 	// compressor->Enabled();
+	solenPlateSucker.reset(new frc::Solenoid(CAN_PCM,PCM_SOLENOID_PLATESUCKER));
 
 	pdp.reset(new frc::PowerDistributionPanel());
 }

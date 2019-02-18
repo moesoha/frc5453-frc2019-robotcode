@@ -1,13 +1,13 @@
 #include "Subsystems/FootSubsystem.h"
 #include "RobotMap.h"
-#include "Commands/LegAxisCommand.h"
+#include "Commands/FootRollerCommand.h"
 
 FootSubsystem::FootSubsystem() : frc::Subsystem("FootSubsystem") {
 	motorFootRoller=RobotMap::motorFootRoller;
 }
 
 void FootSubsystem::InitDefaultCommand() {
-	// SetDefaultCommand(new LegAxisCommand());
+	SetDefaultCommand(new FootRollerCommand(-0.05));
 }
 
 void FootSubsystem::roll(double speed){

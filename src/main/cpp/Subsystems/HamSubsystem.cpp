@@ -21,3 +21,13 @@ double HamSubsystem::hamDistance(){
 void HamSubsystem::stopMotors(){
 	motorHam->StopMotor();
 }
+
+void HamSubsystem::softStop(){
+	if(hamDistance()<15){
+		motorHam->Set(0);
+	}else if(hamDistance()<70){
+		motorHam->Set(0.06);
+	}else{
+		motorHam->Set(0.09);
+	}
+}

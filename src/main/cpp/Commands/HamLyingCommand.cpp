@@ -17,7 +17,7 @@ bool HamLyingCommand::IsFinished() {
 }
 
 void HamLyingCommand::End() {
-    Robot::hamSubsystem->stopMotors();
+    Robot::hamSubsystem->softStop();
 }
 
 void HamLyingCommand::Interrupted() {
@@ -26,16 +26,14 @@ void HamLyingCommand::Interrupted() {
 
 double HamLyingCommand::generateOutputPercent(){
 	double dist=Robot::hamSubsystem->hamDistance();
-	if(dist<10){
-		return 0.3;
-	}else if(dist<50){
-		return 0.3;
-	}else if(dist<130){
+	if(dist<9){
+		return 0.05;
+	}else if(dist<23){
 		return 0.18;
-    }else if(dist<320){
-        return 0.1;
-    }else if(dist<480){
+    }else if(dist<56){
+        return 0.20;
+    }else if(dist<82){
 		return 0.08;
 	}
-    return -0.06;
+    return 0.02;
 }
