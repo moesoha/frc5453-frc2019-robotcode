@@ -8,7 +8,7 @@ ElevatorAxisCommand::ElevatorAxisCommand() {
 void ElevatorAxisCommand::Initialize() {}
 
 void ElevatorAxisCommand::Execute() {
-	Robot::elevatorSubsystem->set(Robot::oi->getDriverRawAxis(1)*0.6);
+	Robot::elevatorSubsystem->set(Robot::oi->getDriverRawAxis(1)*0.4);
 }
 
 bool ElevatorAxisCommand::IsFinished() {

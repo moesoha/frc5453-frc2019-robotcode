@@ -1,7 +1,7 @@
 #include "Commands/HamLyingCommand.h"
 
 HamLyingCommand::HamLyingCommand() {
-	Requires(Robot::footSubsystem.get());
+	Requires(Robot::hamSubsystem.get());
 }
 
 void HamLyingCommand::Initialize() {
@@ -9,7 +9,7 @@ void HamLyingCommand::Initialize() {
 }
 
 void HamLyingCommand::Execute() {
-	Robot::footSubsystem->ham(-generateOutputPercent());
+	Robot::hamSubsystem->set(-generateOutputPercent());
 }
 
 bool HamLyingCommand::IsFinished() {
@@ -17,7 +17,7 @@ bool HamLyingCommand::IsFinished() {
 }
 
 void HamLyingCommand::End() {
-    Robot::footSubsystem->ham(0);
+    Robot::hamSubsystem->stopMotors();
 }
 
 void HamLyingCommand::Interrupted() {
@@ -25,7 +25,7 @@ void HamLyingCommand::Interrupted() {
 }
 
 double HamLyingCommand::generateOutputPercent(){
-	double dist=Robot::footSubsystem->hamDistance();
+	double dist=Robot::hamSubsystem->hamDistance();
 	if(dist<10){
 		return 0.3;
 	}else if(dist<50){

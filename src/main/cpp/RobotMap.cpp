@@ -53,8 +53,8 @@ void RobotMap::init(){
 	motorElevator.reset(new frc::SpeedControllerGroup(*motorElevator1,*motorElevator2));
 
 	compressor.reset(new frc::Compressor(RobotMap::CAN_PCM));
-	compressor->SetClosedLoopControl(true);
+	compressor->SetClosedLoopControl(false);
 	// compressor->Enabled();
 
-	// pdp.reset(new frc::PowerDistributionPanel());
+	pdp.reset(new frc::PowerDistributionPanel());
 }

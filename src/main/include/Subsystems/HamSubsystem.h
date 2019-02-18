@@ -4,15 +4,15 @@
 #include <ctre/Phoenix.h>
 #include <frc/WPILib.h>
 
-class ElevatorSubsystem : public frc::Subsystem {
+class HamSubsystem : public frc::Subsystem {
 private:
-	std::shared_ptr<frc::SpeedControllerGroup> motorElevator;
+	std::shared_ptr<frc::SpeedControllerGroup> motorHam;
 
 public:
-	ElevatorSubsystem();
+	HamSubsystem();
 	void InitDefaultCommand() override;
 	void set(double speed);
-	void softStop();
 	void stopMotors();
+	double hamDistance();
 };
 

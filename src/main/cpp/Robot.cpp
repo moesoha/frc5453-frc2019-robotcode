@@ -5,6 +5,8 @@
 
 std::shared_ptr<DriveSubsystem> Robot::driveSubsystem;
 std::shared_ptr<FootSubsystem> Robot::footSubsystem;
+std::shared_ptr<HamSubsystem> Robot::hamSubsystem;
+std::shared_ptr<HamPIDSubsystem> Robot::hamPidSubsystem;
 std::shared_ptr<ElevatorSubsystem> Robot::elevatorSubsystem;
 std::shared_ptr<OI> Robot::oi;
 
@@ -13,6 +15,8 @@ void Robot::RobotInit() {
 
 	driveSubsystem.reset(new DriveSubsystem());
 	footSubsystem.reset(new FootSubsystem());
+	hamSubsystem.reset(new HamSubsystem());
+	hamPidSubsystem.reset(new HamPIDSubsystem());
 	elevatorSubsystem.reset(new ElevatorSubsystem());
 
 	oi.reset(new OI());
@@ -26,7 +30,9 @@ void Robot::RobotInit() {
 
 void Robot::RobotPeriodic() {}
 
-void Robot::DisabledInit() {}
+void Robot::DisabledInit() {
+	hamPidSubsystem->Disable();
+}
 
 void Robot::DisabledPeriodic() {
 	frc::Scheduler::GetInstance()->Run();
@@ -45,6 +51,8 @@ void Robot::AutonomousPeriodic() {
 }
 
 void Robot::TeleopInit() {
+	hamPidSubsystem->Enable();
+	hamPidSubsystem->SetSetpoint(22);
 	// This makes sure that the autonomous stops running when
 	// teleop starts running. If you want the autonomous to
 	// continue until interrupted by another command, remove

@@ -6,6 +6,7 @@ class OI {
 private:
 	std::shared_ptr<frc::Joystick> joystickDriver;
 	std::shared_ptr<frc::Joystick> joystickOperator;
+	std::shared_ptr<frc::Joystick> joystickOperator2;
 
 public:
 	OI();

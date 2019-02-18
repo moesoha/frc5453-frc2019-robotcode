@@ -14,6 +14,10 @@ void ElevatorSubsystem::set(double speed){
 	motorElevator->Set(speed);
 }
 
+void ElevatorSubsystem::softStop(){
+	motorElevator->Set(0.05);
+}
+
 void ElevatorSubsystem::stopMotors(){
 	motorElevator->StopMotor();
 }
