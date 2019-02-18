@@ -17,6 +17,8 @@ public:
 	constexpr static int CAN_CHASSIS_MOTOR_NUMBASE=20;
 	constexpr static int DIO_ENCODER_HAM_A=0;
 	constexpr static int DIO_ENCODER_HAM_B=1;
+	constexpr static int DIO_ENCODER_FOOTFRAME_A=2;
+	constexpr static int DIO_ENCODER_FOOTFRAME_B=3;
 	constexpr static int PCM_SOLENOID_PLATESUCKER=0;
 
 	static std::shared_ptr<rev::CANSparkMax> motorDriveLeft1;
@@ -35,6 +37,8 @@ public:
 	static std::shared_ptr<ctre::phoenix::motorcontrol::can::WPI_VictorSPX> motorHam2;
 	static std::shared_ptr<frc::SpeedControllerGroup> motorHam;
 	static std::shared_ptr<frc::Encoder> encoderHam;
+
+	static std::shared_ptr<frc::Encoder> encoderFootFrame;
 
 	static std::shared_ptr<ctre::phoenix::motorcontrol::can::WPI_VictorSPX> motorElevator1;
 	static std::shared_ptr<ctre::phoenix::motorcontrol::can::WPI_VictorSPX> motorElevator2;
