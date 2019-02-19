@@ -1,13 +1,13 @@
 #include "Subsystems/HamSubsystem.h"
 #include "RobotMap.h"
-#include "Commands/HamAxisCommand.h"
+#include "Commands/FreezingHamCommand.h"
 
 HamSubsystem::HamSubsystem() : frc::Subsystem("HamSubsystem") {
 	motorHam=RobotMap::motorHam;
 }
 
 void HamSubsystem::InitDefaultCommand() {
-	// SetDefaultCommand(new HamAxisCommand());
+	SetDefaultCommand(new FreezingHamCommand());
 }
 
 void HamSubsystem::set(double speed){
