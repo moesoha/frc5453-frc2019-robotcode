@@ -1,7 +1,6 @@
 #include "OI.h"
 
-#include "Commands/HamRaisingCommand.h"
-#include "Commands/HamLyingCommand.h"
+#include "Commands/HamControlCommand.h"
 #include "Commands/TongueRaisingCommand.h"
 #include "Commands/TongueLyingCommand.h"
 #include "Commands/FootRollerCommand.h"
@@ -16,9 +15,9 @@ OI::OI() {
 	(new frc::JoystickButton(joystickOperator.get(), 9))->WhileHeld(new TongueRaisingCommand());
 	(new frc::JoystickButton(joystickOperator.get(), 10))->WhileHeld(new TongueLyingCommand());
 
-	(new frc::JoystickButton(joystickOperator.get(), 3))->WhileHeld(new HamRaisingCommand());
-	(new frc::JoystickButton(joystickOperator.get(), 4))->WhileHeld(new HamLyingCommand(true));
-	(new frc::JoystickButton(joystickOperator.get(), 5))->WhileHeld(new HamLyingCommand(false));
+	(new frc::JoystickButton(joystickOperator.get(), 3))->WhileHeld(new HamControlCommand(true,true));
+	(new frc::JoystickButton(joystickOperator.get(), 4))->WhileHeld(new HamControlCommand(false,true));
+	(new frc::JoystickButton(joystickOperator.get(), 5))->WhileHeld(new HamControlCommand(false,false));
 	(new frc::JoystickButton(joystickOperator.get(), 1))->WhileHeld(new FootRollerCommand(1)); //push
 	(new frc::JoystickButton(joystickOperator.get(), 2))->WhileHeld(new FootRollerCommand(-0.4));
 	// (new frc::JoystickButton(joystickOperator.get(), 5))->WhileHeld(new FootRollerCommand(-0.05));
