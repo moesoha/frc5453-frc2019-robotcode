@@ -2,6 +2,8 @@
 
 #include "Commands/HamRaisingCommand.h"
 #include "Commands/HamLyingCommand.h"
+#include "Commands/TongueRaisingCommand.h"
+#include "Commands/TongueLyingCommand.h"
 #include "Commands/FootRollerCommand.h"
 #include "Commands/ElevatorSetCommand.h"
 #include "Commands/SuckerToggleCommand.h"
@@ -10,6 +12,9 @@ OI::OI() {
 	joystickDriver.reset(new frc::Joystick(0));
 	joystickOperator.reset(new frc::Joystick(1));
 	joystickOperator2.reset(new frc::Joystick(2));
+
+	(new frc::JoystickButton(joystickDriver.get(), 4))->WhileHeld(new TongueRaisingCommand());
+	(new frc::JoystickButton(joystickDriver.get(), 3))->WhileHeld(new TongueLyingCommand());
 
 	(new frc::JoystickButton(joystickOperator.get(), 4))->WhileHeld(new HamRaisingCommand());
 	(new frc::JoystickButton(joystickOperator.get(), 2))->WhileHeld(new HamLyingCommand());

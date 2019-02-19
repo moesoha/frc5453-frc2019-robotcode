@@ -8,7 +8,7 @@ TongueSubsystem::TongueSubsystem() : frc::Subsystem("TongueSubsystem") {
 }
 
 void TongueSubsystem::InitDefaultCommand() {
-    SetDefaultCommand(new TongueAxisCommand());
+    // SetDefaultCommand(new TongueAxisCommand());
 }
 
 void TongueSubsystem::set(double speed){
