@@ -42,7 +42,7 @@ double HamRaisingCommand::generateOutputPercent(){
 		return 0.36;
 	}
 	if(dist>82 && disto<0){
-		return -0.9;
+		return -0.09;
 	}
 	return 0.3;
 }
