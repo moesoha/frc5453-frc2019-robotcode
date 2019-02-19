@@ -1,4 +1,5 @@
 #include "Commands/HamLyingCommand.h"
+#include <cmath>
 
 HamLyingCommand::HamLyingCommand() {
 	Requires(Robot::hamSubsystem.get());
@@ -26,6 +27,7 @@ void HamLyingCommand::Interrupted() {
 
 double HamLyingCommand::generateOutputPercent(){
 	double dist=Robot::hamSubsystem->hamDistance();
+	dist=fabs(dist);
 	if(dist<9){
 		return 0.08;
 	}else if(dist<23){
@@ -33,7 +35,7 @@ double HamLyingCommand::generateOutputPercent(){
     }else if(dist<56){
         return 0.20;
     }else if(dist<82){
-		return 0.08;
+		return 0.10;
 	}
-    return 0.02;
+    return 0.07;
 }

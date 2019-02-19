@@ -1,4 +1,5 @@
 #include "Commands/HamRaisingCommand.h"
+#include <cmath>
 
 HamRaisingCommand::HamRaisingCommand() {
 	Requires(Robot::hamSubsystem.get());
@@ -30,12 +31,11 @@ void HamRaisingCommand::Interrupted() {
 
 double HamRaisingCommand::generateOutputPercent(){
 	double dist=Robot::hamSubsystem->hamDistance();
-	if(dist<3){
-		return 0;
-	}else if(dist<5){
-		return 0.05;
+	dist=fabs(dist);
+	if(dist<5){
+		return 0.08;
 	}else if(dist<18){
-		return 0.10;
+		return 0.14;
 	}else if(dist<35){
 		return 0.21;
 	}else if(dist<82){
