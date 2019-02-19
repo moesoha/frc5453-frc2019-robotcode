@@ -44,15 +44,15 @@ void HamControlCommand::Interrupted() {
 double HamControlCommand::generateRaisingOutputPercent(double disto){
 	double dist=fabs(disto);
     if(dist<8){
-        return 0.12;
+        return 0.16;
     }else if(dist<18){
-        return 0.22;
+        return 0.27;
     }else if(dist<54){
-        return 0.31;
+        return 0.37;
     }else if(dist<90){
-        return 0.28;
+        return 0.31;
     }
-    return 0.3;
+    return 0.38;
 }
 
 double HamControlCommand::generateLyingOutputPercent(double disto){
