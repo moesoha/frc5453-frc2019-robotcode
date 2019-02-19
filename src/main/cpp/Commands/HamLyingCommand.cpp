@@ -27,7 +27,7 @@ void HamLyingCommand::Interrupted() {
 double HamLyingCommand::generateOutputPercent(){
 	double dist=Robot::hamSubsystem->hamDistance();
 	if(dist<9){
-		return 0.05;
+		return 0.08;
 	}else if(dist<23){
 		return 0.18;
     }else if(dist<56){
