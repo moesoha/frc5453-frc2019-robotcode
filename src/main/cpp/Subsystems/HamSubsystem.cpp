@@ -33,7 +33,7 @@ void HamSubsystem::softStop(){
 }
 
 void HamSubsystem::softBackStop(){
-	if(hamDistance()>-15){
+	if(hamDistance()>3){
 		motorHam->Set(0);
 	}else if(hamDistance()>-60){
 		motorHam->Set(-0.06);

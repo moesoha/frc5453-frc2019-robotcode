@@ -12,7 +12,7 @@ void FreezingHamCommand::Execute(){
     double dist=Robot::hamSubsystem->hamDistance();
 	if(dist>5){
         Robot::hamSubsystem->softStop();
-    }else if(dist<-5){
+    }else{
         Robot::hamSubsystem->softBackStop();
     }
 }
