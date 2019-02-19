@@ -32,7 +32,7 @@ double BackHamLyingCommand::generateOutputPercent(){
         return 0.18;
     }else if(dist>-50){
         return 0.20;
-    }else if(dist>-78){
+    }else if(dist>-90){
         return 0.08;
     }
     return -0.09;
