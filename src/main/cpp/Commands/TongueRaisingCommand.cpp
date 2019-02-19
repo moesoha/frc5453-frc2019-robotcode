@@ -7,7 +7,7 @@ TongueRaisingCommand::TongueRaisingCommand() {
 void TongueRaisingCommand::Initialize() {}
 
 void TongueRaisingCommand::Execute() {
-	Robot::tongueSubsystem->set(Robot::tongueSubsystem->set(0.07));
+	Robot::tongueSubsystem->set(0.07);
 }
 
 bool TongueRaisingCommand::IsFinished() {
