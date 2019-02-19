@@ -20,8 +20,8 @@ std::shared_ptr<frc::Encoder> RobotMap::encoderHam;
 std::shared_ptr<ctre::phoenix::motorcontrol::can::WPI_VictorSPX> RobotMap::motorHalfFrame;
 std::shared_ptr<frc::Encoder> RobotMap::encoderFootFrame;
 
-std::shared_ptr<ctre::phoenix::motorcontrol::can::WPI_VictorSPX> RobotMap::motorElevator1;
-std::shared_ptr<ctre::phoenix::motorcontrol::can::WPI_VictorSPX> RobotMap::motorElevator2;
+std::shared_ptr<ctre::phoenix::motorcontrol::can::WPI_TalonSRX> RobotMap::motorElevator1;
+std::shared_ptr<ctre::phoenix::motorcontrol::can::WPI_TalonSRX> RobotMap::motorElevator2;
 std::shared_ptr<frc::SpeedControllerGroup> RobotMap::motorElevator;
 
 std::shared_ptr<frc::Compressor> RobotMap::compressor;
@@ -61,8 +61,8 @@ void RobotMap::init(){
 	encoderFootFrame->SetDistancePerPulse(360.0/2048.0*0.72); // deg
 	// ^ 0.72 is belt wheel ratio
 
-	motorElevator1.reset(new ctre::phoenix::motorcontrol::can::WPI_VictorSPX(RobotMap::CAN_FRONT_WINCH_1));
-	motorElevator2.reset(new ctre::phoenix::motorcontrol::can::WPI_VictorSPX(RobotMap::CAN_FRONT_WINCH_2));
+	motorElevator1.reset(new ctre::phoenix::motorcontrol::can::WPI_TalonSRX(RobotMap::CAN_FRONT_WINCH_1));
+	motorElevator2.reset(new ctre::phoenix::motorcontrol::can::WPI_TalonSRX(RobotMap::CAN_FRONT_WINCH_2));
 	motorElevator.reset(new frc::SpeedControllerGroup(*motorElevator1,*motorElevator2));
 
 	compressor.reset(new frc::Compressor(RobotMap::CAN_PCM));

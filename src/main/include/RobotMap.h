@@ -43,8 +43,8 @@ public:
 	static std::shared_ptr<ctre::phoenix::motorcontrol::can::WPI_VictorSPX> motorHalfFrame;
 	static std::shared_ptr<frc::Encoder> encoderFootFrame;
 
-	static std::shared_ptr<ctre::phoenix::motorcontrol::can::WPI_VictorSPX> motorElevator1;
-	static std::shared_ptr<ctre::phoenix::motorcontrol::can::WPI_VictorSPX> motorElevator2;
+	static std::shared_ptr<ctre::phoenix::motorcontrol::can::WPI_TalonSRX> motorElevator1;
+	static std::shared_ptr<ctre::phoenix::motorcontrol::can::WPI_TalonSRX> motorElevator2;
 	static std::shared_ptr<frc::SpeedControllerGroup> motorElevator;
 
 	static std::shared_ptr<frc::Compressor> compressor;
