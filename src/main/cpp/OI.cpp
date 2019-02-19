@@ -13,8 +13,8 @@ OI::OI() {
 	joystickOperator.reset(new frc::Joystick(1));
 	joystickOperator2.reset(new frc::Joystick(2));
 
-	(new frc::JoystickButton(joystickDriver.get(), 4))->WhileHeld(new TongueRaisingCommand());
-	(new frc::JoystickButton(joystickDriver.get(), 3))->WhileHeld(new TongueLyingCommand());
+	(new frc::JoystickButton(joystickOperator.get(), 9))->WhileHeld(new TongueRaisingCommand());
+	(new frc::JoystickButton(joystickOperator.get(), 10))->WhileHeld(new TongueLyingCommand());
 
 	(new frc::JoystickButton(joystickOperator.get(), 4))->WhileHeld(new HamRaisingCommand());
 	(new frc::JoystickButton(joystickOperator.get(), 2))->WhileHeld(new HamLyingCommand());
