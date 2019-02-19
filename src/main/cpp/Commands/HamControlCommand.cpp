@@ -46,11 +46,11 @@ double HamControlCommand::generateRaisingOutputPercent(double disto){
     if(dist<8){
         return 0.12;
     }else if(dist<18){
-        return 0.16;
-    }else if(dist<54){
-        return 0.21;
-    }else if(dist<90){
         return 0.22;
+    }else if(dist<54){
+        return 0.31;
+    }else if(dist<90){
+        return 0.28;
     }
     return 0.3;
 }
