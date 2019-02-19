@@ -4,6 +4,7 @@
 
 TongueSubsystem::TongueSubsystem() : frc::Subsystem("TongueSubsystem") {
 	motor=RobotMap::motorHalfFrame;
+	encoder=RobotMap::encoderFootFrame;
 }
 
 void TongueSubsystem::InitDefaultCommand() {
@@ -12,6 +13,10 @@ void TongueSubsystem::InitDefaultCommand() {
 
 void TongueSubsystem::set(double speed){
 	motor->Set(ctre::phoenix::motorcontrol::ControlMode::PercentOutput, speed);
+}
+
+double TongueSubsystem::position(){
+	return encoder->GetDistance();
 }
 
 void TongueSubsystem::stopMotors(){

@@ -13,6 +13,10 @@ void HamRaisingCommand::Execute() {
 }
 
 bool HamRaisingCommand::IsFinished() {
+	// ham 到达一定位置，并且 tongue 的位置不正确的时候强行 finish
+	if(Robot::hamSubsystem->hamDistance()<30 && Robot::tongueSubsystem->position()>120){
+		return true;
+	}
 	return false;
 }
 
