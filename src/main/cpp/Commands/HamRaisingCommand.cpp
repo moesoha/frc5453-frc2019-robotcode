@@ -30,8 +30,8 @@ void HamRaisingCommand::Interrupted() {
 }
 
 double HamRaisingCommand::generateOutputPercent(){
-	double dist=Robot::hamSubsystem->hamDistance();
-	dist=fabs(dist);
+	double disto=Robot::hamSubsystem->hamDistance();
+	double dist=fabs(disto);
 	if(dist<5){
 		return 0.08;
 	}else if(dist<18){
@@ -39,6 +39,9 @@ double HamRaisingCommand::generateOutputPercent(){
 	}else if(dist<35){
 		return 0.21;
 	}else if(dist<82){
+		if(disto<0){
+			return -0.9;
+		}
 		return 0.36;
 	}
 	return 0.3;
