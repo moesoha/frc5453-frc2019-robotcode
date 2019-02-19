@@ -31,3 +31,13 @@ void HamSubsystem::softStop(){
 		motorHam->Set(0.09);
 	}
 }
+
+void HamSubsystem::softBackStop(){
+	if(hamDistance()>-15){
+		motorHam->Set(0);
+	}else if(hamDistance()>-60){
+		motorHam->Set(-0.06);
+	}else{
+		motorHam->Set(-0.09);
+	}
+}
