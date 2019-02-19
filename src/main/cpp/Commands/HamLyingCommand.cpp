@@ -1,7 +1,8 @@
 #include "Commands/HamLyingCommand.h"
 #include <cmath>
 
-HamLyingCommand::HamLyingCommand() {
+HamLyingCommand::HamLyingCommand(bool safe) {
+	safeDown=safe;
 	Requires(Robot::hamSubsystem.get());
 }
 
@@ -34,8 +35,10 @@ double HamLyingCommand::generateOutputPercent(){
 		return 0.18;
     }else if(dist<56){
         return 0.20;
-    }else if(dist<82){
+    }else if(dist<86){
 		return 0.10;
+	}else if(!safeDown && dist<150){
+		return 0.09;
 	}
-    return 0.07;
+    return -0.09;
 }

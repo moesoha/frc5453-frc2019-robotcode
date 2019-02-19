@@ -6,8 +6,9 @@
 class HamLyingCommand : public frc::Command {
 private:
 	double generateOutputPercent();
+	bool safeDown=false;
 public:
-	HamLyingCommand();
+	HamLyingCommand(bool safe);
 	void Initialize() override;
 	void Execute() override;
 	bool IsFinished() override;
