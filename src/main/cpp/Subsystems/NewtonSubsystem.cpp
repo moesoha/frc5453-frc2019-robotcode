@@ -1,4 +1,5 @@
 #include "Subsystems/NewtonSubsystem.h"
+#include "Commands/NewtonUsingHandsCommand.h"
 #include "RobotMap.h"
 
 NewtonSubsystem::NewtonSubsystem() : frc::Subsystem("NewtonSubsystem") {
@@ -9,7 +10,7 @@ NewtonSubsystem::NewtonSubsystem() : frc::Subsystem("NewtonSubsystem") {
 }
 
 void NewtonSubsystem::InitDefaultCommand() {
-	// SetDefaultCommand();
+	SetDefaultCommand(new NewtonUsingHandsCommand());
 }
 
 // Arm Part
