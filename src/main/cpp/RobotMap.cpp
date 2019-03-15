@@ -28,6 +28,11 @@ std::shared_ptr<frc::Compressor> RobotMap::compressor;
 std::shared_ptr<frc::Solenoid> RobotMap::solenPlateSucker;
 std::shared_ptr<frc::Solenoid> RobotMap::solenPlateSuckerKiller;
 
+std::shared_ptr<ctre::phoenix::motorcontrol::can::WPI_VictorSPX> RobotMap::motorNewtonLeftArm;
+std::shared_ptr<ctre::phoenix::motorcontrol::can::WPI_VictorSPX> RobotMap::motorNewtonRightArm;
+std::shared_ptr<frc::Solenoid> RobotMap::solenNewtonLeftHand;
+std::shared_ptr<frc::Solenoid> RobotMap::solenNewtonRightHand;
+
 std::shared_ptr<frc::PowerDistributionPanel> RobotMap::pdp;
 
 void RobotMap::init(){
@@ -70,6 +75,11 @@ void RobotMap::init(){
 	// compressor->Enabled();
 	solenPlateSuckerKiller.reset(new frc::Solenoid(CAN_PCM,PCM_SOLENOID_PLATESUCKERKILLER));
 	solenPlateSucker.reset(new frc::Solenoid(CAN_PCM,PCM_SOLENOID_PLATESUCKER));
+
+	motorNewtonLeftArm.reset(new ctre::phoenix::motorcontrol::can::WPI_VictorSPX(RobotMap::CAN_NEWTON_ARM_LEFT));
+	motorNewtonRightArm.reset(new ctre::phoenix::motorcontrol::can::WPI_VictorSPX(RobotMap::CAN_NEWTON_ARM_RIGHT));
+	solenNewtonLeftHand.reset(new frc::Solenoid(RobotMap::PCM_SOLENOID_NEWTON_HAND_LEFT));
+	solenNewtonRightHand.reset(new frc::Solenoid(RobotMap::PCM_SOLENOID_NEWTON_HAND_RIGHT));
 
 	pdp.reset(new frc::PowerDistributionPanel());
 }

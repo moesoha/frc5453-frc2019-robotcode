@@ -14,14 +14,18 @@ public:
 	constexpr static int CAN_HALF_FRAME=14;
 	constexpr static int CAN_FRONT_WINCH_1=16;
 	constexpr static int CAN_FRONT_WINCH_2=17;
-	constexpr static int CAN_PCM=60;
+	constexpr static int CAN_NEWTON_ARM_LEFT=18;
+	constexpr static int CAN_NEWTON_ARM_RIGHT=19;
 	constexpr static int CAN_CHASSIS_MOTOR_NUMBASE=20;
+	constexpr static int CAN_PCM=60;
 	constexpr static int DIO_ENCODER_HAM_A=0;
 	constexpr static int DIO_ENCODER_HAM_B=1;
 	constexpr static int DIO_ENCODER_FOOTFRAME_A=2;
 	constexpr static int DIO_ENCODER_FOOTFRAME_B=3;
 	constexpr static int PCM_SOLENOID_PLATESUCKER=0;
 	constexpr static int PCM_SOLENOID_PLATESUCKERKILLER=1;
+	constexpr static int PCM_SOLENOID_NEWTON_HAND_LEFT=2;
+	constexpr static int PCM_SOLENOID_NEWTON_HAND_RIGHT=3;
 
 	static std::shared_ptr<rev::CANSparkMax> motorDriveLeft1;
 	static std::shared_ptr<rev::CANSparkMax> motorDriveLeft2;
@@ -50,6 +54,11 @@ public:
 	static std::shared_ptr<frc::Compressor> compressor;
 	static std::shared_ptr<frc::Solenoid> solenPlateSucker;
 	static std::shared_ptr<frc::Solenoid> solenPlateSuckerKiller;
+
+	static std::shared_ptr<ctre::phoenix::motorcontrol::can::WPI_VictorSPX> motorNewtonLeftArm;
+	static std::shared_ptr<ctre::phoenix::motorcontrol::can::WPI_VictorSPX> motorNewtonRightArm;
+	static std::shared_ptr<frc::Solenoid> solenNewtonLeftHand;
+	static std::shared_ptr<frc::Solenoid> solenNewtonRightHand;
 
 	static std::shared_ptr<frc::PowerDistributionPanel> pdp;
 };
