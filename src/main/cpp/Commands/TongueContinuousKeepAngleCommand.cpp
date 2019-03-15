@@ -7,7 +7,10 @@ TongueContinuousKeepAngleCommand::TongueContinuousKeepAngleCommand() {
 void TongueContinuousKeepAngleCommand::Initialize() {}
 
 void TongueContinuousKeepAngleCommand::Execute() {
-	Robot::tongueSubsystem->set(Robot::tongueSubsystem->getFixedOutput(Robot::hamSubsystem->hamDistance(),Robot::tongueSubsystem->position()));
+	double output=Robot::tongueSubsystem->getFixedOutput(Robot::hamSubsystem->hamDistance(),Robot::tongueSubsystem->position());
+	output*=0.5;
+	// Robot::tongueSubsystem->set(output);
+	frc::SmartDashboard::PutNumber("Tongue Fixed Output",output);
 }
 
 bool TongueContinuousKeepAngleCommand::IsFinished() {

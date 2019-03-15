@@ -24,9 +24,8 @@ public:
 	constexpr static int DIO_ENCODER_FOOTFRAME_B=3;
 	constexpr static int PCM_SOLENOID_PLATESUCKER=0;
 	constexpr static int PCM_SOLENOID_PLATESUCKERKILLER=1;
-	constexpr static int PCM_SOLENOID_NEWTON_HAND_LEFT=2;
-	constexpr static int PCM_SOLENOID_NEWTON_HAND_RIGHT=3;
-
+	constexpr static int PCM_SOLENOID_NEWTON_HAND=2;
+	
 	static std::shared_ptr<rev::CANSparkMax> motorDriveLeft1;
 	static std::shared_ptr<rev::CANSparkMax> motorDriveLeft2;
 	static std::shared_ptr<rev::CANSparkMax> motorDriveLeft3;
@@ -57,8 +56,7 @@ public:
 
 	static std::shared_ptr<ctre::phoenix::motorcontrol::can::WPI_VictorSPX> motorNewtonLeftArm;
 	static std::shared_ptr<ctre::phoenix::motorcontrol::can::WPI_VictorSPX> motorNewtonRightArm;
-	static std::shared_ptr<frc::Solenoid> solenNewtonLeftHand;
-	static std::shared_ptr<frc::Solenoid> solenNewtonRightHand;
+	static std::shared_ptr<frc::Solenoid> solenNewtonHand;
 
 	static std::shared_ptr<frc::PowerDistributionPanel> pdp;
 };

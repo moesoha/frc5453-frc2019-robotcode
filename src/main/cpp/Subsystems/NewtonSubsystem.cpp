@@ -5,8 +5,7 @@
 NewtonSubsystem::NewtonSubsystem() : frc::Subsystem("NewtonSubsystem") {
 	motorLeft=RobotMap::motorNewtonLeftArm;
 	motorRight=RobotMap::motorNewtonRightArm;
-    solenLeft=RobotMap::solenNewtonLeftHand;
-    solenRight=RobotMap::solenNewtonRightHand;
+    solenoid=RobotMap::solenNewtonHand;
 }
 
 void NewtonSubsystem::InitDefaultCommand() {
@@ -37,22 +36,14 @@ void NewtonSubsystem::stopMotors(){
 
 // Hand Part
 void NewtonSubsystem::startPushing(){
-    startPushingLeft();
-    startPushingRight();
-}
-void NewtonSubsystem::startPushingLeft(){
-    solenLeft->Set(true);
-}
-void NewtonSubsystem::startPushingRight(){
-    solenRight->Set(true);
+    solenStatus=true;
+    solenoid->Set(true);
 }
 void NewtonSubsystem::stopPushing(){
-    stopPushingLeft();
-    stopPushingRight();
+    solenStatus=false;
+    solenoid->Set(false);
 }
-void NewtonSubsystem::stopPushingLeft(){
-    solenLeft->Set(false);
-}
-void NewtonSubsystem::stopPushingRight(){
-    solenRight->Set(false);
+void NewtonSubsystem::toggleHand(){
+    solenoid->Set(!solenStatus);
+    solenStatus=!solenStatus;
 }

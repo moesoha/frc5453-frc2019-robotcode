@@ -8,8 +8,8 @@ class NewtonSubsystem : public frc::Subsystem {
 private:
 	std::shared_ptr<ctre::phoenix::motorcontrol::can::WPI_VictorSPX> motorLeft;
 	std::shared_ptr<ctre::phoenix::motorcontrol::can::WPI_VictorSPX> motorRight;
-    std::shared_ptr<frc::Solenoid> solenLeft;
-    std::shared_ptr<frc::Solenoid> solenRight;
+    std::shared_ptr<frc::Solenoid> solenoid;
+    bool solenStatus=false;
 
 public:
 	NewtonSubsystem();
@@ -24,10 +24,7 @@ public:
 	void stopMotors();
 
     // Hand Part
+    void toggleHand();
     void startPushing();
-    void startPushingLeft();
-    void startPushingRight();
     void stopPushing();
-    void stopPushingLeft();
-    void stopPushingRight();
 };
