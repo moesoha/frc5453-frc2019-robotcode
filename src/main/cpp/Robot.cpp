@@ -29,8 +29,10 @@ void Robot::RobotInit() {
 	m_chooser.AddOption("Go straight", new TimedArcadeDriveCommand(0.4, 0, 3.2));
 	frc::SmartDashboard::PutData("Auto Modes", &m_chooser);
 
-	frc::CameraServer::GetInstance()->StartAutomaticCapture("Front",0);
-	frc::CameraServer::GetInstance()->StartAutomaticCapture("Rear",1);
+	auto camFront=frc::CameraServer::GetInstance()->StartAutomaticCapture("Front",0);
+	auto camRear=frc::CameraServer::GetInstance()->StartAutomaticCapture("Rear",1);
+	camFront.SetFPS(12);
+	camRear.SetFPS(12);
 }
 
 void Robot::RobotPeriodic() {}

@@ -64,6 +64,7 @@ void RobotMap::init(){
 	// encoderFootFrame->SetDistancePerPulse(2*3.1415926535897932384/2048.0*0.72); // rad
 	encoderFootFrame->SetDistancePerPulse(360.0/2048.0*0.72); // deg
 	// ^ 0.72 is belt wheel ratio
+	encoderFootFrame->SetReverseDirection(true);
 
 	motorElevator1.reset(new ctre::phoenix::motorcontrol::can::WPI_TalonSRX(RobotMap::CAN_FRONT_WINCH_1));
 	motorElevator2.reset(new ctre::phoenix::motorcontrol::can::WPI_TalonSRX(RobotMap::CAN_FRONT_WINCH_2));
@@ -71,13 +72,14 @@ void RobotMap::init(){
 
 	compressor.reset(new frc::Compressor(RobotMap::CAN_PCM));
 	compressor->SetClosedLoopControl(true);
-	// compressor->Enabled();
+	// comment the latter line before competition
+	// compressor->SetClosedLoopControl(false);
 	solenPlateSuckerKiller.reset(new frc::Solenoid(CAN_PCM,PCM_SOLENOID_PLATESUCKERKILLER));
 	solenPlateSucker.reset(new frc::Solenoid(CAN_PCM,PCM_SOLENOID_PLATESUCKER));
 
 	motorNewtonLeftArm.reset(new ctre::phoenix::motorcontrol::can::WPI_VictorSPX(RobotMap::CAN_NEWTON_ARM_LEFT));
 	motorNewtonRightArm.reset(new ctre::phoenix::motorcontrol::can::WPI_VictorSPX(RobotMap::CAN_NEWTON_ARM_RIGHT));
-	solenNewtonHand.reset(new frc::Solenoid(RobotMap::PCM_SOLENOID_NEWTON_HAND));
+	// solenNewtonHand.reset(new frc::Solenoid(RobotMap::PCM_SOLENOID_NEWTON_HAND));
 
 	pdp.reset(new frc::PowerDistributionPanel());
 }

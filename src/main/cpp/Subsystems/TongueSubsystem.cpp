@@ -9,7 +9,7 @@ TongueSubsystem::TongueSubsystem() : frc::Subsystem("TongueSubsystem") {
 }
 
 void TongueSubsystem::InitDefaultCommand() {
-    SetDefaultCommand(new TongueContinuousKeepAngleCommand());
+    // SetDefaultCommand(new TongueContinuousKeepAngleCommand());
 }
 
 void TongueSubsystem::set(double speed){
@@ -32,5 +32,12 @@ double TongueSubsystem::getFixedOutput(double hamAngle,double tongueAngle) {
 	// 目标角度为6点钟方向为标准的偏移
     double angleTarget=hamAngle+fixedPosition;
 	double angleDelta=angleTarget-tongueAngle;
-    return pow(angleDelta/270,3);
+    double y=pow(angleDelta/180,3);
+	if(y>1.0){
+		return 1.0;
+	}else if(y<-1.0){
+		return -1.0;
+	}else{
+		return y;
+	}
 }
