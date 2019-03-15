@@ -9,8 +9,9 @@
 
 OI::OI() {
 	joystickDriver.reset(new frc::Joystick(0));
-	joystickOperator.reset(new frc::Joystick(1));
-	joystickOperator2.reset(new frc::Joystick(2));
+	joystickNewton.reset(new frc::Joystick(1));
+	joystickOperator.reset(new frc::Joystick(2));
+	joystickOperator2.reset(new frc::Joystick(3));
 
 	(new frc::JoystickButton(joystickOperator.get(), 9))->WhileHeld(new TongueRaisingCommand());
 	(new frc::JoystickButton(joystickOperator.get(), 10))->WhileHeld(new TongueLyingCommand());
@@ -39,10 +40,22 @@ std::shared_ptr<frc::Joystick> OI::getJoystickDriver(){
 	return joystickDriver;
 }
 
+std::shared_ptr<frc::Joystick> OI::getJoystickNewton(){
+	return joystickNewton;
+}
+
 double OI::getDriverRawAxis(int axis){
 	return joystickDriver->GetRawAxis(axis);
 }
 
 bool OI::getDriverRawButton(int id){
 	return joystickDriver->GetRawButton(id);
+}
+
+double OI::getNewtonRawAxis(int axis){
+	return joystickNewton->GetRawAxis(axis);
+}
+
+bool OI::getNewtonRawButton(int id){
+	return joystickNewton->GetRawButton(id);
 }
