@@ -14,7 +14,16 @@
   "wpilib.online": true,
   "files.associations": {
     "memory": "cpp",
-    "*.inc": "cpp"
+    "*.inc": "cpp",
+    "array": "cpp",
+    "istream": "cpp",
+    "tuple": "cpp",
+    "type_traits": "cpp",
+    "utility": "cpp",
+    "xlocmes": "cpp",
+    "xlocmon": "cpp",
+    "xlocnum": "cpp",
+    "xloctime": "cpp"
   },
   "C_Cpp.default.configurationProvider": "vscode-wpilib"
 }

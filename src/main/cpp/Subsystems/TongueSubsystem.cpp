@@ -1,6 +1,7 @@
 #include "Subsystems/TongueSubsystem.h"
 #include "RobotMap.h"
-#include "Commands/TongueAxisCommand.h"
+#include "Commands/TongueContinuousKeepAngleCommand.h"
+#include <cmath>
 
 TongueSubsystem::TongueSubsystem() : frc::Subsystem("TongueSubsystem") {
 	motor=RobotMap::motorHalfFrame;
@@ -8,7 +9,7 @@ TongueSubsystem::TongueSubsystem() : frc::Subsystem("TongueSubsystem") {
 }
 
 void TongueSubsystem::InitDefaultCommand() {
-    // SetDefaultCommand(new TongueAxisCommand());
+    SetDefaultCommand(new TongueContinuousKeepAngleCommand());
 }
 
 void TongueSubsystem::set(double speed){
@@ -21,4 +22,15 @@ double TongueSubsystem::position(){
 
 void TongueSubsystem::stopMotors(){
 	motor->StopMotor();
+}
+
+void TongueSubsystem::setFixedPosition(double angle){
+	fixedPosition=angle;
+}
+
+double TongueSubsystem::getFixedOutput(double hamAngle,double tongueAngle) {
+	// 目标角度为6点钟方向为标准的偏移
+    double angleTarget=hamAngle+fixedPosition;
+	double angleDelta=angleTarget-tongueAngle;
+    return pow(angleDelta/270,3);
 }
