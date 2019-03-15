@@ -12,6 +12,8 @@ std::shared_ptr<TongueSubsystem> Robot::tongueSubsystem;
 std::shared_ptr<NewtonSubsystem> Robot::newtonSubsystem;
 std::shared_ptr<OI> Robot::oi;
 
+std::shared_ptr<cs::UsbCamera> camFront,camRear;
+
 void Robot::RobotInit() {
 	RobotMap::init();
 
@@ -29,8 +31,8 @@ void Robot::RobotInit() {
 	m_chooser.AddOption("Go straight", new TimedArcadeDriveCommand(0.4, 0, 3.2));
 	frc::SmartDashboard::PutData("Auto Modes", &m_chooser);
 
-	auto camFront=frc::CameraServer::GetInstance()->StartAutomaticCapture("Front",0);
-	auto camRear=frc::CameraServer::GetInstance()->StartAutomaticCapture("Rear",1);
+	camFront=frc::CameraServer::GetInstance()->StartAutomaticCapture("Front",0);
+	camRear=frc::CameraServer::GetInstance()->StartAutomaticCapture("Rear",1);
 	camFront.SetFPS(12);
 	camRear.SetFPS(12);
 }

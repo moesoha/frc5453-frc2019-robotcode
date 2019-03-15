@@ -43,4 +43,5 @@ private:
 	// doesn't have undefined behavior and potentially crash.
 	frc::Command* m_autonomousCommand = nullptr;
 	frc::SendableChooser<frc::Command*> m_chooser;
+	cs::UsbCamera camFront,camRear;
 };
