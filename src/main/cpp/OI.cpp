@@ -3,6 +3,8 @@
 #include "Commands/HamControlCommand.h"
 #include "Commands/TongueRaisingCommand.h"
 #include "Commands/TongueLyingCommand.h"
+#include "Commands/TongueEncoderResetCommand.h"
+#include "Commands/TongueIncCommand.h"
 #include "Commands/FootRollerCommand.h"
 #include "Commands/ElevatorSetCommand.h"
 #include "Commands/SuckerToggleCommand.h"
@@ -13,8 +15,13 @@ OI::OI() {
 	joystickOperator.reset(new frc::Joystick(2));
 	joystickOperator2.reset(new frc::Joystick(3));
 
-	(new frc::JoystickButton(joystickOperator.get(), 9))->WhileHeld(new TongueRaisingCommand());
-	(new frc::JoystickButton(joystickOperator.get(), 10))->WhileHeld(new TongueLyingCommand());
+	// (new frc::JoystickButton(joystickOperator.get(), 9))->WhileHeld(new TongueRaisingCommand());
+	// (new frc::JoystickButton(joystickOperator.get(), 10))->WhileHeld(new TongueLyingCommand());
+	(new frc::JoystickButton(joystickOperator.get(), 9))->WhileHeld(new TongueIncCommand(1));
+	(new frc::JoystickButton(joystickOperator.get(), 10))->WhileHeld(new TongueIncCommand(-1));
+	(new frc::JoystickButton(joystickOperator2.get(), 9))->WhileHeld(new TongueIncCommand(3));
+	(new frc::JoystickButton(joystickOperator2.get(), 10))->WhileHeld(new TongueIncCommand(-3));
+	(new frc::JoystickButton(joystickOperator.get(), 6))->WhileHeld(new TongueEncoderResetCommand());
 
 	(new frc::JoystickButton(joystickOperator.get(), 3))->WhileHeld(new HamControlCommand(true,true));
 	(new frc::JoystickButton(joystickOperator.get(), 4))->WhileHeld(new HamControlCommand(false,true));

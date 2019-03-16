@@ -62,7 +62,7 @@ void RobotMap::init(){
 	motorHalfFrame.reset(new ctre::phoenix::motorcontrol::can::WPI_VictorSPX(RobotMap::CAN_HALF_FRAME));
 	encoderFootFrame.reset(new frc::Encoder(RobotMap::DIO_ENCODER_FOOTFRAME_A, RobotMap::DIO_ENCODER_FOOTFRAME_B));
 	// encoderFootFrame->SetDistancePerPulse(2*3.1415926535897932384/2048.0*0.72); // rad
-	encoderFootFrame->SetDistancePerPulse(360.0/2048.0*0.72); // deg
+	encoderFootFrame->SetDistancePerPulse(360.0/2048.0*0.75); // deg
 	// ^ 0.72 is belt wheel ratio
 	encoderFootFrame->SetReverseDirection(true);
 
@@ -79,6 +79,7 @@ void RobotMap::init(){
 
 	motorNewtonLeftArm.reset(new ctre::phoenix::motorcontrol::can::WPI_VictorSPX(RobotMap::CAN_NEWTON_ARM_LEFT));
 	motorNewtonRightArm.reset(new ctre::phoenix::motorcontrol::can::WPI_VictorSPX(RobotMap::CAN_NEWTON_ARM_RIGHT));
+	motorNewtonRightArm->SetInverted(true);
 	// solenNewtonHand.reset(new frc::Solenoid(RobotMap::PCM_SOLENOID_NEWTON_HAND));
 
 	pdp.reset(new frc::PowerDistributionPanel());

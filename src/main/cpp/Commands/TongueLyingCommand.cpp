@@ -7,7 +7,7 @@ TongueLyingCommand::TongueLyingCommand() {
 void TongueLyingCommand::Initialize() {}
 
 void TongueLyingCommand::Execute() {
-	Robot::tongueSubsystem->set(-0.5);
+	Robot::tongueSubsystem->set(-0.4);
 }
 
 bool TongueLyingCommand::IsFinished() {

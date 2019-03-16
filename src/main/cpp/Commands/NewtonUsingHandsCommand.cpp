@@ -7,8 +7,8 @@ NewtonUsingHandsCommand::NewtonUsingHandsCommand() {
 void NewtonUsingHandsCommand::Initialize() {}
 
 void NewtonUsingHandsCommand::Execute() {
-	Robot::newtonSubsystem->setLeft(Robot::oi->getNewtonRawAxis(1));
-	Robot::newtonSubsystem->setRight(Robot::oi->getNewtonRawAxis(3));
+	Robot::newtonSubsystem->setLeft(Robot::oi->getNewtonRawAxis(3)*0.2);
+	Robot::newtonSubsystem->setRight(Robot::oi->getNewtonRawAxis(1)*0.2);
     
 }
 
