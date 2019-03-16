@@ -8,7 +8,7 @@ class TongueSubsystem : public frc::Subsystem {
 private:
 	std::shared_ptr<ctre::phoenix::motorcontrol::can::WPI_VictorSPX> motor;
 	std::shared_ptr<frc::Encoder> encoder;
-	double fixedPosition=0;
+	double fixedPosition=60;
 
 public:
 	TongueSubsystem();
