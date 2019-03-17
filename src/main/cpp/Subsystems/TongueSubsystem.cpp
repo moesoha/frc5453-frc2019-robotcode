@@ -49,9 +49,6 @@ double TongueSubsystem::getFixedOutput(double hamAngle,double tongueAngle) {
 	}
 	// 目标角度为6点钟方向为标准的偏移
     double angleTarget=hamAngle+pos;
-	// if(angleTarget>220 && hamAngle<10){
-	// 	angleTarget=220;
-	// }else
 	if(angleTarget<0){
 		angleTarget=0;
 	}

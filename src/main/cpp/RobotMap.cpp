@@ -80,7 +80,7 @@ void RobotMap::init(){
 	motorNewtonLeftArm.reset(new ctre::phoenix::motorcontrol::can::WPI_VictorSPX(RobotMap::CAN_NEWTON_ARM_LEFT));
 	motorNewtonRightArm.reset(new ctre::phoenix::motorcontrol::can::WPI_VictorSPX(RobotMap::CAN_NEWTON_ARM_RIGHT));
 	motorNewtonRightArm->SetInverted(true);
-	// solenNewtonHand.reset(new frc::Solenoid(RobotMap::PCM_SOLENOID_NEWTON_HAND));
+	solenNewtonHand.reset(new frc::Solenoid(CAN_PCM,RobotMap::PCM_SOLENOID_NEWTON_HAND));
 
 	pdp.reset(new frc::PowerDistributionPanel());
 }

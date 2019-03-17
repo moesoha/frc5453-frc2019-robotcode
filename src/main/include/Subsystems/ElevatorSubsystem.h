@@ -14,5 +14,6 @@ public:
 	void set(double speed);
 	void softStop();
 	void stopMotors();
+	double distance();
 };
 

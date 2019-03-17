@@ -37,7 +37,9 @@ void Robot::RobotInit() {
 	camRear.SetFPS(12);
 }
 
-void Robot::RobotPeriodic() {}
+void Robot::RobotPeriodic() {
+	frc::SmartDashboard::PutNumber("Elevator Distance",elevatorSubsystem->distance());
+}
 
 void Robot::DisabledInit() {}
 

@@ -3,6 +3,7 @@
 #include "Commands/HamControlCommand.h"
 #include "Commands/TongueRaisingCommand.h"
 #include "Commands/TongueLyingCommand.h"
+#include "Commands/NewtonLovesGroundCommand.h"
 #include "Commands/TongueEncoderResetCommand.h"
 #include "Commands/TongueIncCommand.h"
 #include "Commands/FootRollerCommand.h"
@@ -34,6 +35,9 @@ OI::OI() {
 	(new frc::JoystickButton(joystickOperator.get(), 8))->WhenReleased(new SuckerToggleCommand(false));
 	(new frc::JoystickButton(joystickOperator.get(), 7))->WhenPressed(new SuckerToggleCommand(true));
 	(new frc::JoystickButton(joystickOperator.get(), 7))->WhenReleased(new SuckerToggleCommand(true));
+
+	(new frc::JoystickButton(joystickOperator2.get(), 8))->WhenPressed(new NewtonLovesGroundCommand(true));
+	(new frc::JoystickButton(joystickOperator2.get(), 8))->WhenReleased(new NewtonLovesGroundCommand(false));
 
 	(new frc::JoystickButton(joystickOperator2.get(), 1))->WhileHeld(new ElevatorSetCommand(0.8));
 	(new frc::JoystickButton(joystickOperator2.get(), 2))->WhileHeld(new ElevatorSetCommand(0.5));

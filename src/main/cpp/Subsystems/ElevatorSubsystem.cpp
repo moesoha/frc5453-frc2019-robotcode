@@ -21,3 +21,7 @@ void ElevatorSubsystem::softStop(){
 void ElevatorSubsystem::stopMotors(){
 	motorElevator->StopMotor();
 }
+
+double ElevatorSubsystem::distance(){
+	RobotMap::motorElevator1->GetSelectedSensorPosition();
+}
