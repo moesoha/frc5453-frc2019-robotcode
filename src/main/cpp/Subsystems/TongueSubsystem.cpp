@@ -29,6 +29,10 @@ void TongueSubsystem::resetEncoder(){
 	encoder->Reset();
 }
 
+double TongueSubsystem::getFixedPosition(){
+	return fixedPosition;
+}
+
 void TongueSubsystem::setFixedPosition(double angle){
 	fixedPosition=angle;
 	frc::SmartDashboard::PutNumber("Tongue Fixed Position",fixedPosition);
@@ -56,7 +60,7 @@ double TongueSubsystem::getFixedOutput(double hamAngle,double tongueAngle) {
 		angleTarget=270;
 	}
 	double angleDelta=angleTarget-tongueAngle;
-    double y=pow(angleDelta/30,3);
+    double y=pow(angleDelta/20,3)*2;
 	if(y>0.2){
 		return 0.2;
 	}else if(y<-0.2){

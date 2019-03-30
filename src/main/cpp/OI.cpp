@@ -22,7 +22,8 @@ OI::OI() {
 	(new frc::JoystickButton(joystickOperator.get(), 10))->WhileHeld(new TongueIncCommand(-1));
 	(new frc::JoystickButton(joystickOperator2.get(), 9))->WhileHeld(new TongueIncCommand(3));
 	(new frc::JoystickButton(joystickOperator2.get(), 10))->WhileHeld(new TongueIncCommand(-3));
-	(new frc::JoystickButton(joystickOperator.get(), 6))->WhileHeld(new TongueEncoderResetCommand());
+	(new frc::JoystickButton(joystickOperator.get(), 6))->WhileHeld(new TongueIncCommand(3,100));
+	// (new frc::JoystickButton(joystickOperator.get(), 6))->WhileHeld(new TongueEncoderResetCommand());
 
 	(new frc::JoystickButton(joystickOperator.get(), 3))->WhileHeld(new HamControlCommand(true,true));
 	(new frc::JoystickButton(joystickOperator.get(), 4))->WhileHeld(new HamControlCommand(false,true));

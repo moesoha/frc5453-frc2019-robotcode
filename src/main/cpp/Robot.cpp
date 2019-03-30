@@ -2,6 +2,7 @@
 
 #include <frc/commands/Scheduler.h>
 #include <frc/smartdashboard/SmartDashboard.h>
+#include "Commands/TongueSetCommand.h"
 
 std::shared_ptr<DriveSubsystem> Robot::driveSubsystem;
 std::shared_ptr<FootSubsystem> Robot::footSubsystem;
@@ -28,7 +29,8 @@ void Robot::RobotInit() {
 	oi.reset(new OI());
 
 	m_chooser.SetDefaultOption("Still", new StillAutoCommand());
-	m_chooser.AddOption("Go straight", new TimedArcadeDriveCommand(0.4, 0, 3.2));
+	m_chooser.AddOption("cargo (0deg)", new TongueSetCommand(0));
+	m_chooser.AddOption("hatch (100deg)", new TongueSetCommand(100));
 	frc::SmartDashboard::PutData("Auto Modes", &m_chooser);
 
 	camFront=frc::CameraServer::GetInstance()->StartAutomaticCapture("Front",0);
